@@ -12,6 +12,7 @@
 /* array, and places all smaller (smaller than pivot)*/
 /* to left of pivot and all greater elements to right */
 /* of pivot */
+/* Lomuto’s Partition Scheme */
 int partition(int *array, int low, int high, size_t size)
 {
 /*pivot (Element to be placed at right position)*/
