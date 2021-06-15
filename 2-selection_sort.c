@@ -10,15 +10,19 @@ void selection_sort(int *array, size_t size)
 {
 
 	size_t i, j, jmin;
-	int aux;
+	int aux, min;
 
+	if (!array)
+		return;
 	for (i = 0; i < size - 1; i++)
 	{
+		min = array[i];
 		jmin = i;
 		for (j = i + 1; j < size; j++)
-		if (array[j] < array[jmin])
+		if (array[j] < min)
 		{
 			/* found new minimum; remember its index */
+			min = array[j];
 			jmin = j;
 		}
 
