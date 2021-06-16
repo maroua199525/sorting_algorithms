@@ -37,8 +37,11 @@ int hoare_partition(int *array, int low, int high, size_t size)
 			array[i] = array[j];
 			array[j] = aux;
 		}
+		else
+		{
+			return (j);
+		}
 		print_array(array, size);
-		return (j);
 	}
 
 }
