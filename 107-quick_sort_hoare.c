@@ -19,29 +19,26 @@ int hoare_partition(int *array, int low, int high, size_t size)
 	int pivot = array[high];
 /*Index of smaller element and indicates the */
 /* right position of pivot found so far */
-	int i = low - 1, j = high + 1, aux;
+	int i = low, j = high, aux;
 
 	while (1)
 	{
 		/* Find leftmost element greater than or equal to pivot */
-		do {
+		while (array[i] < pivot)
 			i++;
-		} while (array[i] < pivot);
-		/* Find rightmost element smaller than or equal to pivot */
-		do {
+		while (array[j] > pivot)
 			j--;
-		} while (array[j] > pivot);
 		if (i < j)
 		{
 			aux = array[i];
 			array[i] = array[j];
 			array[j] = aux;
+			print_array(array, size);
 		}
 		else
 		{
 			return (j);
 		}
-		print_array(array, size);
 	}
 
 }
@@ -77,7 +74,7 @@ void hoare_qsorting(int *array, int low, int high, size_t size)
 */
 void quick_sort_hoare(int *array, size_t size)
 {
-	if (array == NULL || size < 2)
+	if (array ==NULL || size < 2)
 		return;
 	hoare_qsorting(array, 0, size - 1, size);
 }
