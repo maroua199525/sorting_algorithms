@@ -24,11 +24,13 @@ int hoare_partition(int *array, int low, int high, size_t size)
 	while (1)
 	{
 		/* Find leftmost element greater than or equal to pivot */
-		while (array[i] < pivot)
+		do {
 			i++;
+		} while (array[i] < pivot);
 		/* Find rightmost element smaller than or equal to pivot */
-		while (array[j] > pivot)
+		do {
 			j--;
+		} while (array[j] > pivot);
 		if (i < j)
 		{
 			aux = array[i];
